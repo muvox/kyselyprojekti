@@ -2,6 +2,7 @@ package com.kysely.kyselyprojekti.web;
 
 import com.kysely.kyselyprojekti.domain.KyselyRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,13 @@ import java.util.List;
  */
 @Controller
 public class KyselyController {
+
+    @Autowired
     KyselyRepository repo;
 
-    @RequestMapping(value="")
+    @RequestMapping(value="/")
     public String kysely(Model model){
-         model.addAttribute("kysely", repo.findAll());
+        model.addAttribute("kysely", repo.findAll());
         return "index";
     }
 }

@@ -26,6 +26,8 @@ public class KyselyprojektiApplication {
 			repo.save(new Kysely("Kysymys"));
 			log.info("Fetcing all kymysys info");
 
+			repo.save(new Kysely("kysymyksia lisää"));
+
             for(Kysely kysymys : repo.findAll()){
                 log.info(kysymys.toString());
             }
