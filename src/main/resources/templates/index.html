@@ -7,7 +7,15 @@
 </head>
 
 <body>
+<table class="table table-striped">
+    <tr>
+        <th>Kysymys</th>
+    </tr>
 
+    <tr th:each = "kysymys : ${kysely}">
+        <td th:text="${kysymys.data}"></td>
+    </tr>
+</table>
 
 </body>
 </html>

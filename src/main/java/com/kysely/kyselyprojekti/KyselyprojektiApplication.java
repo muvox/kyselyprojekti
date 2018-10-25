@@ -24,7 +24,9 @@ public class KyselyprojektiApplication {
 			log.info("Inserting a question");
 
 			repo.save(new Kysely("Kysymys"));
-			log.info("Fetcing all book info");
+			log.info("Fetcing all kymysys info");
+
+			for()
 
 		};
 	}

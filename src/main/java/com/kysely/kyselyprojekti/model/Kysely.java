@@ -1,10 +1,6 @@
 package com.kysely.kyselyprojekti.model;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 /**
  * Created by a1704471 on 25.10.2018.
@@ -15,6 +11,9 @@ public class Kysely {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Version
+    private Long version;
 
     private String data;
 

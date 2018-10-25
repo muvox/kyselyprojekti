@@ -16,13 +16,9 @@ import java.util.List;
 public class KyselyController {
     KyselyRepository repo;
 
-    @RequestMapping(value="/")
+    @RequestMapping(value="")
     public String kysely(Model model){
-//        model.addAttribute("kysely", repo.findAll());
-//        return "index";
-        //List<Kysely> kysymys = new ArrayList<>();
-        Kysely kysymys = new Kysely("kysymys1");
-        model.addAttribute("kysymys", kysymys);
+         model.addAttribute("kysely", repo.findAll());
         return "index";
     }
 }
