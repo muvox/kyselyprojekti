@@ -9,6 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class KyselyprojektiApplication {
 
@@ -23,14 +26,35 @@ public class KyselyprojektiApplication {
 		return (args) -> {
 			log.info("Inserting a question");
 
-			repo.save(new Kysely("Kysymys"));
-			log.info("Fetcing all kymysys info");
 
-			repo.save(new Kysely("kysymyksia lisää"));
+			String kys1 = "Onko tämä kysymys?";
 
-            for(Kysely kysymys : repo.findAll()){
-                log.info(kysymys.toString());
-            }
+
+			String kys2 ="Onko tämäkin kysymys?";
+
+
+			String kys3 = "Onko tämä mukamas kysymys?";
+
+
+			List<String> kysymysLista = new ArrayList<>();
+			List<String> kysymysLista2 = new ArrayList<>();
+			kysymysLista.add(kys1);
+			kysymysLista.add(kys2);
+			kysymysLista.add(kys3);
+
+			kysymysLista2.add(kys1);
+			kysymysLista2.add(kys3);
+
+			Kysely kysely1 = new Kysely(kysymysLista);
+			Kysely kysely2 = new Kysely(kysymysLista2);
+
+
+			repo.save(kysely1);
+			repo.save(kysely2);
+
+			log.info("kysely1 kysymys1");
+
+			log.info("blah" +kysely1.getKysymykset());
 
 		};
 	}

@@ -1,6 +1,8 @@
 package com.kysely.kyselyprojekti.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by a1704471 on 25.10.2018.
@@ -9,19 +11,18 @@ import javax.persistence.*;
 public class Kysely {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Version
-    private Long version;
-
-    private String data;
+    @ElementCollection
+    @CollectionTable(name = "kysymykset")
+    private List<String> kysymykset = new ArrayList<String>();
 
     public Kysely() {
     }
 
-    public Kysely(String data){
-        this.data = data;
+    public Kysely(List<String> kysymykset){
+        this.kysymykset = kysymykset;
     }
 
     public Long getId() {
@@ -32,19 +33,20 @@ public class Kysely {
         this.id = id;
     }
 
-    public String getData() {
-        return data;
+    public List<String> getKysymykset() {
+        return kysymykset;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setKysymykset(List<String> kysymykset) {
+        this.kysymykset = kysymykset;
     }
+
 
     @Override
     public String toString() {
         return "Kysely{" +
                 "id=" + id +
-                ", data='" + data + '\'' +
+                ", kysymykset=" + kysymykset +
                 '}';
     }
 }
