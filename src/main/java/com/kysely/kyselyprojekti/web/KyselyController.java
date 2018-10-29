@@ -42,4 +42,14 @@ public class KyselyController {
     public Iterable<Kysely> kyselyt(){
         return repo.findAll();
     }
+
+    @RequestMapping(value="/yksiKysymys")
+    public String kysymys(){
+        Iterable<Kysely> kyselytIterable = repo.findAll();
+        List<Kysely> kyselyList = new LinkedList<Kysely>();
+        for(Kysely e:kyselytIterable)
+            kyselyList.add(e);
+
+        return kyselyList.get(0).getKysymykset().get(0);
+    }
 }

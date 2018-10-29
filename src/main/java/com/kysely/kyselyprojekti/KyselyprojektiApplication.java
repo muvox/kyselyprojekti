@@ -26,24 +26,24 @@ public class KyselyprojektiApplication {
 		return (args) -> {
 			log.info("Inserting a question");
 
-
-			String kys1 = "Onko tämä kysymys?";
-
-
-			String kys2 ="Onko tämäkin kysymys?";
-
-
-			String kys3 = "Onko tämä mukamas kysymys?";
-
+			String kys1 = "Millä linjalla opiskelet?";
+			String kys2 ="Opiskeletko päivätoteutuksessa vai monimuodossa?";
+			String kys3 = "Oletko osallistunut kursseille, jotka ovat osittain tai kokonaan virtuaalisia?";
+			String kys4 = "Valitsisitko enemmän virtuaalikursseja, kuin lähiopetuskursseja jos mahdollista.";
+			String kys5 = "Onko mielestäsi virtuaalisia toteutuksia riittävästi kurssivalikoimassa?";
 
 			List<String> kysymysLista = new ArrayList<>();
 			List<String> kysymysLista2 = new ArrayList<>();
+
 			kysymysLista.add(kys1);
 			kysymysLista.add(kys2);
 			kysymysLista.add(kys3);
+			kysymysLista.add(kys4);
+			kysymysLista.add(kys5);
 
 			kysymysLista2.add(kys1);
 			kysymysLista2.add(kys3);
+			kysymysLista2.add(kys5);
 
 			Kysely kysely1 = new Kysely(kysymysLista);
 			Kysely kysely2 = new Kysely(kysymysLista2);
