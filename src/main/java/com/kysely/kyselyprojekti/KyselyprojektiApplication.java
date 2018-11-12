@@ -2,6 +2,7 @@ package com.kysely.kyselyprojekti;
 
 import com.kysely.kyselyprojekti.domain.KyselyRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
+import com.kysely.kyselyprojekti.model.Kysymys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -26,14 +27,14 @@ public class KyselyprojektiApplication {
 		return (args) -> {
 			log.info("Inserting a question");
 
-			String kys1 = "Millä linjalla opiskelet?";
-			String kys2 ="Opiskeletko päivätoteutuksessa vai monimuodossa?";
-			String kys3 = "Oletko osallistunut kursseille, jotka ovat osittain tai kokonaan virtuaalisia?";
-			String kys4 = "Valitsisitko enemmän virtuaalikursseja, kuin lähiopetuskursseja jos mahdollista.";
-			String kys5 = "Onko mielestäsi virtuaalisia toteutuksia riittävästi kurssivalikoimassa?";
+			Kysymys kys1 = new Kysymys("Millä linjalla opiskelet?");
+			Kysymys kys2 = new Kysymys("Opiskeletko päivätoteutuksessa vai monimuodossa?");
+			Kysymys kys3 = new Kysymys("Oletko osallistunut kursseille, jotka ovat osittain tai kokonaan virtuaalisia?");
+			Kysymys kys4 = new Kysymys("Valitsisitko enemmän virtuaalikursseja, kuin lähiopetuskursseja jos mahdollista.");
+			Kysymys kys5 = new Kysymys("Onko mielestäsi virtuaalisia toteutuksia riittävästi kurssivalikoimassa?");
 
-			List<String> kysymysLista = new ArrayList<>();
-			List<String> kysymysLista2 = new ArrayList<>();
+			List<Kysymys> kysymysLista = new ArrayList<>();
+			List<Kysymys> kysymysLista2 = new ArrayList<>();
 
 			kysymysLista.add(kys1);
 			kysymysLista.add(kys2);

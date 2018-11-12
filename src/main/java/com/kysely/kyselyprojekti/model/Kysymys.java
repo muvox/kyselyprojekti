@@ -1,18 +1,23 @@
 package com.kysely.kyselyprojekti.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by a1704471 on 29.10.2018.
  */
 @Entity
 public class Kysymys {
+
     @Id
     @GeneratedValue
     private Long id;
 
+    @NotEmpty
+    @NotNull
     private String value;
 
     public Kysymys(String value) {
@@ -38,11 +43,11 @@ public class Kysymys {
         this.value = value;
     }
 
+
     @Override
     public String toString() {
         return "Kysymys{" +
                 "id=" + id +
-                ", value='" + value + '\'' +
-                '}';
+                ", value='" + value + '\'';
     }
 }

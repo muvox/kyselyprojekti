@@ -50,6 +50,6 @@ public class KyselyController {
         for(Kysely e:kyselytIterable)
             kyselyList.add(e);
 
-        return kyselyList.get(0).getKysymykset().get(0);
+        return kyselyList.get(0).getKysymykset().get(0).toString();
     }
 }
