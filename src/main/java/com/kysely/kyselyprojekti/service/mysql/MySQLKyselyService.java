@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MySQLKyselyService implements KyselyService {
@@ -25,8 +26,8 @@ public class MySQLKyselyService implements KyselyService {
     }
 
     @Override
-    public Kysely readKysely(Long id){
-        return repository.f
+    public Optional<Kysely> readKysely(Long id){
+        return repository.findById(id);
     }
 
     @Override

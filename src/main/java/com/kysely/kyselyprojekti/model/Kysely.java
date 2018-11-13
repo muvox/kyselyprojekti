@@ -10,17 +10,19 @@ import com.kysely.kyselyprojekti.model.Kysymys;
 /**
  * Created by a1704471 on 25.10.2018.
  */
-@Entity(name = "kysely")
+@Entity
+@Table(name="kyselyt")
 public class Kysely {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
-    @NotEmpty
+    @Column(name = "id")
     private Long id;
 
-    @ManyToOne(targetEntity=com.kysely.kyselyprojekti.model.Kysymys.class)
-    private List<Kysymys> kysymykset;
+    @OneToMany(mappedBy = "kysely")
+    @OrderBy("id ASC")
+    List<Kysymys> kysymykset;
+
 
     public Kysely() {
     }

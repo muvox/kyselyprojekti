@@ -10,18 +10,23 @@ import java.util.List;
  * Created by a1704471 on 29.10.2018.
  */
 @Entity
+@Table(name = "kysymykset")
 public class Kysymys {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
     private Long id;
 
-    @NotEmpty
-    @NotNull
-    private String value;
+    @Column(name = "body")
+    private String body;
 
-    public Kysymys(String value) {
-        this.value = value;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "kysely_id")
+    private Kysely kysely;
+
+    public Kysymys(String body) {
+        this.body = body;
     }
 
     public Kysymys() {
@@ -35,19 +40,20 @@ public class Kysymys {
         this.id = id;
     }
 
-    public String getValue() {
-        return value;
+    public String getBody() {
+        return body;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setBody(String body) {
+        this.body = body;
     }
 
 
-    @Override
-    public String toString() {
-        return "Kysymys{" +
-                "id=" + id +
-                ", value='" + value + '\'';
+    public Kysely getKysely() {
+        return kysely;
+    }
+
+    public void setKysely(Kysely kysely) {
+        this.kysely = kysely;
     }
 }

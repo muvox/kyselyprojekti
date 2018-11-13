@@ -1,6 +1,7 @@
 package com.kysely.kyselyprojekti;
 
 import com.kysely.kyselyprojekti.domain.KyselyRepository;
+import com.kysely.kyselyprojekti.domain.KysymysRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
 import com.kysely.kyselyprojekti.model.Kysymys;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class KyselyprojektiApplication {
 	}
 
 	@Bean
-	public CommandLineRunner insertTestData(KyselyRepository repo){
+	public CommandLineRunner insertTestData(KyselyRepository repo, KysymysRepository kysRepo){
 		return (args) -> {
 			log.info("Inserting a question");
 
@@ -32,6 +33,12 @@ public class KyselyprojektiApplication {
 			Kysymys kys3 = new Kysymys("Oletko osallistunut kursseille, jotka ovat osittain tai kokonaan virtuaalisia?");
 			Kysymys kys4 = new Kysymys("Valitsisitko enemmän virtuaalikursseja, kuin lähiopetuskursseja jos mahdollista.");
 			Kysymys kys5 = new Kysymys("Onko mielestäsi virtuaalisia toteutuksia riittävästi kurssivalikoimassa?");
+
+			kysRepo.save(kys1);
+            kysRepo.save(kys2);
+            kysRepo.save(kys3);
+            kysRepo.save(kys4);
+            kysRepo.save(kys5);
 
 			List<Kysymys> kysymysLista = new ArrayList<>();
 			List<Kysymys> kysymysLista2 = new ArrayList<>();

@@ -1,7 +1,9 @@
 package com.kysely.kyselyprojekti.web;
 
 import com.kysely.kyselyprojekti.domain.KyselyRepository;
+import com.kysely.kyselyprojekti.domain.KysymysRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
+import com.kysely.kyselyprojekti.model.Kysymys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ public class KyselyController {
 
     @Autowired
     KyselyRepository repo;
+
+    @Autowired
+    KysymysRepository kysRepo;
 
     @RequestMapping(value="/")
     public String kysely(Model model){
@@ -44,12 +49,12 @@ public class KyselyController {
     }
 
     @RequestMapping(value="/yksiKysymys")
-    public String kysymys(){
-        Iterable<Kysely> kyselytIterable = repo.findAll();
-        List<Kysely> kyselyList = new LinkedList<Kysely>();
-        for(Kysely e:kyselytIterable)
-            kyselyList.add(e);
+    public Kysymys kysymys(){
+        Iterable<Kysymys> kysymysIterable = kysRepo.findAll();
+        List<Kysymys> kysymysList = new LinkedList<Kysymys>();
+        for(Kysymys e:kysymysIterable)
+            kysymysList.add(e);
 
-        return kyselyList.get(0).getKysymykset().get(0).toString();
+        return kysymysList.get(0);
     }
 }
