@@ -1,4 +1,4 @@
-package com.kysely.kyselyprojekti.domain;
+package com.kysely.kyselyprojekti.repository;
 
 import com.kysely.kyselyprojekti.model.Kysymys;
 import org.springframework.data.repository.CrudRepository;

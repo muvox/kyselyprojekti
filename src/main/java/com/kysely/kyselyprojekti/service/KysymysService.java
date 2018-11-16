@@ -1,14 +1,17 @@
 package com.kysely.kyselyprojekti.service;
 
 import com.kysely.kyselyprojekti.model.Kysymys;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public interface KysymysService {
 
-    Kysymys createKysymys(Kysymys kysymys);
+    Kysymys saveKysymys(Kysymys kysymys);
 
-    Kysymys readKysymysById(Long id);
+    Optional<Kysymys> readKysymysById(Long id);
 
     List<Kysymys> readAllKysymys();
 

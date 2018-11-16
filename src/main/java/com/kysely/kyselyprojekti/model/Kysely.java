@@ -5,6 +5,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kysely.kyselyprojekti.model.Kysymys;
 
 /**
@@ -14,17 +16,23 @@ import com.kysely.kyselyprojekti.model.Kysymys;
 @Table(name="kyselyt")
 public class Kysely {
 
+    @OneToMany(mappedBy = "kysely", cascade = CascadeType.ALL)
+    @OrderBy("id ASC")
+    List<Kysymys> kysymykset;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @OneToMany(mappedBy = "kysely")
-    @OrderBy("id ASC")
-    List<Kysymys> kysymykset;
-
+    @Column(name="title")
+    private String title;
 
     public Kysely() {
+    }
+
+    public Kysely(String title){
+        this.title = title;
     }
 
     public Kysely(List<Kysymys> kysymykset){
@@ -47,6 +55,13 @@ public class Kysely {
         this.kysymykset = kysymykset;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     @Override
     public String toString() {

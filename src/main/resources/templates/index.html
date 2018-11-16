@@ -2,20 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns="http://www.sprinfgramework.org/schema/security">
 <head>
     <title>Kysymys</title>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-<table class="table table-striped">
-    <tr>
-        <th>Kysymys</th>
-    </tr>
+<div class="container">
+    <h1>Index sivu</h1>
+    <div class="card ">
+        <div class="card-header">Hieman ohjeistusta</div>
+        <div class="card-body">
+            <p class="card-text">Tämä sivu tulee ihan osoitteella kyselyprojekti.herokuapp.com
+                Rest rajapintaan pääsee käsiksi /rest/{olio} päätteellä</p>
+        </div>
+    </div>
 
-    <tr th:each = "kysymys : ${kysely}">
-        <td th:text="${kysymys.data}"></td>
-    </tr>
-</table>
+    <div class="card ">
+        <div class="card-header">Kyselyt</div>
+        <div class="card-body">
+            <p class="card-text">Kaikki kyselyt saa esiin /rest/kyselyt . Jos haluaa yhden tietyn kyselyn, se löytyy /rest/kyselyt/kyselyid</p>
+            <div class="card-body">
+                <h6 class="card-subtitle">Esimerkki yksi kysely (kyselyitä on tällä hetkellä 2, mutta toisessa ei ole kysymyksiä(testitarkoituksiin))</h6>
+                <a href="/rest/kyselyt" class="card-link">/rest/kyselyt</a></div>
+            <div class="card-body">
+                <h6 class="card-subtitle">Esimerkki yksi kysely</h6>
+                <a href="/rest/kyselyt/1" class="card-link">/rest/kyselyt/1</a></div>
+        </div>
+    </div>
 
+
+    <div class="card ">
+        <div class="card-header">Kysymykset</div>
+        <div class="card-body">
+            <p class="card-text">Kaikki kysymykset saa esiin /rest/kysymykset . Jos haluaa yhden tietyn kysymyksen, se löytyy /rest/kysymys/kysymysid</p>
+            <div class="card-body">
+                <h6 class="card-subtitle">Esimerkki kaikki kysymykset</h6>
+                <a href="/rest/kysymykset" class="card-link">/rest/kysymykset</a></div>
+            <div class="card-body">
+                <h6 class="card-subtitle">Esimerkki yksi kysymys</h6>
+                <a href="/rest/kysymykset/1" class="card-link">/rest/kysymykset/1</a></div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>

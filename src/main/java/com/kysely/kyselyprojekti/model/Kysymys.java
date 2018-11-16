@@ -1,5 +1,7 @@
 package com.kysely.kyselyprojekti.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -18,16 +20,34 @@ public class Kysymys {
     @Column(name ="id")
     private Long id;
 
+    @Column(name = "type")
+    private String type;
+
     @Column(name = "body")
     private String body;
 
+
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "kysely_id")
     private Kysely kysely;
 
+    public Kysymys(Kysely kysely, String body, String type){
+        this.kysely = kysely;
+        this.body = body;
+        this.type = type;
+    }
+
     public Kysymys(String body) {
         this.body = body;
     }
+
+    public Kysymys(String body, Kysely kysely) {
+        this.body = body;
+        this.type = type;
+        this.kysely = kysely;
+    }
+
 
     public Kysymys() {
     }
@@ -48,6 +68,13 @@ public class Kysymys {
         this.body = body;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public Kysely getKysely() {
         return kysely;

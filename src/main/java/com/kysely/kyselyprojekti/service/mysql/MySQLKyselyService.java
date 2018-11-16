@@ -1,6 +1,6 @@
 package com.kysely.kyselyprojekti.service.mysql;
 
-import com.kysely.kyselyprojekti.domain.KyselyRepository;
+import com.kysely.kyselyprojekti.repository.KyselyRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
 import com.kysely.kyselyprojekti.service.KyselyService;
 import org.slf4j.Logger;
