@@ -41,14 +41,53 @@ public class KyselyprojektiApplication {
 			kyselyRepo.save(kysely1);
 			kyselyRepo.save(kysely2);
 
+			List<String> vaihtoehdot1 = new ArrayList<String>();
+            List<String> vaihtoehdot2 = new ArrayList<String>();
+            List<String> vaihtoehdot3 = new ArrayList<String>();
+            List<String> vaihtoehdot4 = new ArrayList<String>();
+            List<String> vaihtoehdot5 = new ArrayList<String>();
+            List<String> vaihtoehdot6 = new ArrayList<String>();
+            List<String> vaihtoehdot7 = new ArrayList<String>();
 
-            Kysymys kys1 = new Kysymys(kysely1,"Missä toteutusmuodossa opsikelet?", "radio");
-            Kysymys kys2 = new Kysymys(kysely1,"Olen osallistunut kursseille, jotka ovat","checkbox" );
-            Kysymys kys3 = new Kysymys(kysely1,"Jos et, minkä takia?","text");
-            Kysymys kys4 = new Kysymys(kysely1,"Jos mahdollista, valitsisin enemmän","radio");
-            Kysymys kys5 = new Kysymys(kysely1,"Jos olet osallistunut virtuaalikurssille, miten arvioisit niiden laatua yleisesti?","radio");
-            Kysymys kys6 = new Kysymys(kysely1, "Millainen on hyvä virtuaalikurssi?","text");
-            Kysymys kys7 = new Kysymys(kysely1, "Vapaa sana.","text");
+            vaihtoehdot1.add("päivätoteutuksessa");
+            vaihtoehdot1.add("monimuotototeutuksessa");
+            vaihtoehdot1.add("avoimessa amk:ssa");
+
+            vaihtoehdot2.add("kokonaan virtuaalisia");
+            vaihtoehdot2.add("osittain virtuaalisia");
+            vaihtoehdot2.add("en ole osallistunut");
+
+            vaihtoehdot3.add("tesktivastaus");
+
+            vaihtoehdot4.add("virtuaalikursseja");
+            vaihtoehdot4.add("lähiopetuskursseja");
+            vaihtoehdot4.add("ei väliä");
+
+            vaihtoehdot5.add("5 (erittäin tyytyväinen)");
+            vaihtoehdot5.add("4");
+            vaihtoehdot5.add("3");
+            vaihtoehdot5.add("2");
+            vaihtoehdot5.add("1 (erittäin tyytymätön)");
+
+            vaihtoehdot6.add("tesktivastaus");
+            vaihtoehdot7.add("tesktivastaus");
+// Ilman vaihtoehtoja
+//            Kysymys kys1 = new Kysymys(kysely1,"Missä toteutusmuodossa opsikelet?", "radio");
+//            Kysymys kys2 = new Kysymys(kysely1,"Olen osallistunut kursseille, jotka ovat","checkbox" );
+//            Kysymys kys3 = new Kysymys(kysely1,"Jos et, minkä takia?","text");
+//            Kysymys kys4 = new Kysymys(kysely1,"Jos mahdollista, valitsisin enemmän","radio");
+//            Kysymys kys5 = new Kysymys(kysely1,"Jos olet osallistunut virtuaalikurssille, miten arvioisit niiden laatua yleisesti?","radio");
+//            Kysymys kys6 = new Kysymys(kysely1, "Millainen on hyvä virtuaalikurssi?","text");
+//            Kysymys kys7 = new Kysymys(kysely1, "Vapaa sana.","text");
+
+            //Vaihtoehtojen kanssa
+            Kysymys kys1 = new Kysymys(kysely1,"Missä toteutusmuodossa opsikelet?", "radio",vaihtoehdot1);
+            Kysymys kys2 = new Kysymys(kysely1,"Olen osallistunut kursseille, jotka ovat","checkbox",vaihtoehdot2 );
+            Kysymys kys3 = new Kysymys(kysely1,"Jos et, minkä takia?","text",vaihtoehdot3);
+            Kysymys kys4 = new Kysymys(kysely1,"Jos mahdollista, valitsisin enemmän","radio",vaihtoehdot4);
+            Kysymys kys5 = new Kysymys(kysely1,"Jos olet osallistunut virtuaalikurssille, miten arvioisit niiden laatua yleisesti?","radio",vaihtoehdot5);
+            Kysymys kys6 = new Kysymys(kysely1, "Millainen on hyvä virtuaalikurssi?","text",vaihtoehdot6);
+            Kysymys kys7 = new Kysymys(kysely1, "Vapaa sana.","text",vaihtoehdot7);
 
             kysymysLista.add(kys1);
             kysymysLista.add(kys2);

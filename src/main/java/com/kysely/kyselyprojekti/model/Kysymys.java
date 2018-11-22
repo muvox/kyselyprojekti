@@ -26,6 +26,8 @@ public class Kysymys {
     @Column(name = "body")
     private String body;
 
+    @ElementCollection
+    private List<String> vaihtoehdot = new ArrayList<String>();
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -38,6 +40,12 @@ public class Kysymys {
         this.type = type;
     }
 
+    public Kysymys(Kysely kysely, String body, String type, List<String> vaihtoehdot){
+        this.kysely = kysely;
+        this.body = body;
+        this.type = type;
+        this.vaihtoehdot = vaihtoehdot;
+    }
     public Kysymys(String body) {
         this.body = body;
     }
@@ -82,5 +90,13 @@ public class Kysymys {
 
     public void setKysely(Kysely kysely) {
         this.kysely = kysely;
+    }
+
+    public List<String> getVaihtoehdot() {
+        return vaihtoehdot;
+    }
+
+    public void setVaihtoehdot(List<String> vaihtoehdot) {
+        this.vaihtoehdot = vaihtoehdot;
     }
 }
