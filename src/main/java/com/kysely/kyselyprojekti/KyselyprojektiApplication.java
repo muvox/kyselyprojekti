@@ -81,7 +81,7 @@ public class KyselyprojektiApplication {
 //            Kysymys kys7 = new Kysymys(kysely1, "Vapaa sana.","text");
 
             //Vaihtoehtojen kanssa
-            Kysymys kys1 = new Kysymys(kysely1,"Missä toteutusmuodossa opsikelet?", "radio",vaihtoehdot1);
+            Kysymys kys1 = new Kysymys(kysely1,"Missä toteutusmuodossa opiskelet?", "radio",vaihtoehdot1);
             Kysymys kys2 = new Kysymys(kysely1,"Olen osallistunut kursseille, jotka ovat","checkbox",vaihtoehdot2 );
             Kysymys kys3 = new Kysymys(kysely1,"Jos et, minkä takia?","text",vaihtoehdot3);
             Kysymys kys4 = new Kysymys(kysely1,"Jos mahdollista, valitsisin enemmän","radio",vaihtoehdot4);
