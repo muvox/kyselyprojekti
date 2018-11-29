@@ -107,9 +107,15 @@ public class KyselyprojektiApplication {
 
             Iterable<Kysymys> lista = kysymysRepo.findAll();
 
-            Vastaus vas1 = new Vastaus("Päivätoteutuksessa.", lista);
-            Vastaus vas2 = new Vastaus("3. En ole osallistunut.", kys2);
-            Vastaus vas3 = new Vastaus("En tiedä.", kys3);
+            ArrayList<Kysymys> kysLista = new ArrayList<Kysymys>();
+            for(Kysymys k : lista){
+                kysLista.add(k);
+            }
+
+
+            Vastaus vas1 = new Vastaus("Päivätoteutuksessa.", kysLista.get(0).getId());
+            Vastaus vas2 = new Vastaus("3. En ole osallistunut.", kysLista.get(1).getId());
+            Vastaus vas3 = new Vastaus("En tiedä.", kysLista.get(3).getId());
 
             vasRepo.save(vas1);
             vasRepo.save(vas2);

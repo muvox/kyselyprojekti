@@ -21,7 +21,8 @@ public class Kysymys {
     private Long id;
 
     @Column(name = "type")
-    private String type;
+    private
+    String type;
 
     @Column(name = "body")
     private String body;
