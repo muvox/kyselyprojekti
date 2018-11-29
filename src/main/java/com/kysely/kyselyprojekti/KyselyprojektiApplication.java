@@ -1,9 +1,11 @@
 package com.kysely.kyselyprojekti;
 
+import com.kysely.kyselyprojekti.model.Vastaus;
 import com.kysely.kyselyprojekti.repository.KyselyRepository;
 import com.kysely.kyselyprojekti.repository.KysymysRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
 import com.kysely.kyselyprojekti.model.Kysymys;
+import com.kysely.kyselyprojekti.repository.VastausRepository;
 import com.kysely.kyselyprojekti.service.KyselyService;
 import com.kysely.kyselyprojekti.service.KysymysService;
 import org.slf4j.Logger;
@@ -27,7 +29,7 @@ public class KyselyprojektiApplication {
 	}
 
 	@Bean
-	public CommandLineRunner insertTestData(KyselyRepository kyselyRepo, KysymysRepository kysymysRepo){
+	public CommandLineRunner insertTestData(KyselyRepository kyselyRepo, KysymysRepository kysymysRepo, VastausRepository vasRepo){
 		return (args) -> {
 			log.info("Inserting a question");
 
@@ -97,9 +99,21 @@ public class KyselyprojektiApplication {
             kysymysLista.add(kys6);
             kysymysLista.add(kys7);
 
+
+
             for(Kysymys k : kysymysLista) {
                 kysymysRepo.save(k);
             }
+
+            Iterable<Kysymys> lista = kysymysRepo.findAll();
+
+            Vastaus vas1 = new Vastaus("Päivätoteutuksessa.", lista);
+            Vastaus vas2 = new Vastaus("3. En ole osallistunut.", kys2);
+            Vastaus vas3 = new Vastaus("En tiedä.", kys3);
+
+            vasRepo.save(vas1);
+            vasRepo.save(vas2);
+            vasRepo.save(vas3);
 
 		};
 	}

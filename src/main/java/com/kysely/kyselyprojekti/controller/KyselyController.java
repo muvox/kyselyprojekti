@@ -1,9 +1,11 @@
 package com.kysely.kyselyprojekti.controller;
 
+import com.kysely.kyselyprojekti.model.Vastaus;
 import com.kysely.kyselyprojekti.repository.KyselyRepository;
 import com.kysely.kyselyprojekti.repository.KysymysRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
 import com.kysely.kyselyprojekti.model.Kysymys;
+import com.kysely.kyselyprojekti.repository.VastausRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class KyselyController {
 
     @Autowired
     KysymysRepository kysRepo;
+
+    @Autowired
+    VastausRepository vasRepo;
 
     @GetMapping(value="/rest/kyselyt")
     public Iterable<Kysely> kyselyt(){
@@ -46,4 +51,12 @@ public class KyselyController {
 
         return kysRepo.findById(kysymysId);
     }
+
+    @PostMapping(value="/add")
+    public void vastaus (@RequestBody Vastaus vastaus) {
+        vasRepo.save(vastaus);
+    }
+
+    @GetMapping(value="/vastaukset")
+    public Iterable<Vastaus> kaikkiVastaukset() {return vasRepo.findAll();}
 }
