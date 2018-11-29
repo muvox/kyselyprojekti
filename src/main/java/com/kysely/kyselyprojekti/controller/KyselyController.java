@@ -53,8 +53,13 @@ public class KyselyController {
     }
 
     @PostMapping(value="/add")
-    public void vastaus (@RequestBody Vastaus vastaus) {
-        vasRepo.save(vastaus);
+    public void vastaus (@RequestBody String vastaus, Long kysymysId) {
+/*        Vastaus vastausEnt = new Vastaus();
+        vastausEnt.setArvo(vastaus);
+        Optional<Kysymys> objecti = kysRepo.findById(kysymysId);
+        System.out.println(objecti);
+        vasRepo.save(vastausEnt);*/
+//TODO: vastausten koppaaminen
     }
 
     @GetMapping(value="/vastaukset")

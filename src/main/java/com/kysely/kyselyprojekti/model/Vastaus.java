@@ -18,7 +18,7 @@ public class Vastaus {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "kysymys_id")
-    private Long kysymys_id;
+    private Kysymys kysymys;
 
     public Long getId() {
         return id;
@@ -36,17 +36,21 @@ public class Vastaus {
         this.arvo = arvo;
     }
 
-    public Long getKysymys_id() {
-        return kysymys_id;
+    public Kysymys getKysymys() {
+        return kysymys;
     }
 
-    public void setKysymys_id(Long kysymys_id) {
-        this.kysymys_id = kysymys_id;
+    public void setKysymys(Kysymys kysymys) {
+        this.kysymys = kysymys;
     }
 
-    public Vastaus(String arvo, Long kysymys_id) {
+    public Vastaus(String arvo, Kysymys kysymys) {
         this.arvo = arvo;
-        this.kysymys_id = kysymys_id;
+        this.kysymys = kysymys;
+    }
+
+    public Vastaus(String arvo){
+        this.arvo = arvo;
     }
 
     public Vastaus() {

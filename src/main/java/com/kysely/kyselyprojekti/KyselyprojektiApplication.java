@@ -113,9 +113,9 @@ public class KyselyprojektiApplication {
             }
 
 
-            Vastaus vas1 = new Vastaus("Päivätoteutuksessa.", kysLista.get(0).getId());
-            Vastaus vas2 = new Vastaus("3. En ole osallistunut.", kysLista.get(1).getId());
-            Vastaus vas3 = new Vastaus("En tiedä.", kysLista.get(3).getId());
+            Vastaus vas1 = new Vastaus("Päivätoteutuksessa.", kysLista.get(0));
+            Vastaus vas2 = new Vastaus("3. En ole osallistunut.", kysLista.get(1));
+            Vastaus vas3 = new Vastaus("En tiedä.", kysLista.get(3));
 
             vasRepo.save(vas1);
             vasRepo.save(vas2);
