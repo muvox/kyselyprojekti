@@ -57,9 +57,9 @@ public class KyselyprojektiApplication {
 
             vaihtoehdot2.add("kokonaan virtuaalisia");
             vaihtoehdot2.add("osittain virtuaalisia");
-            vaihtoehdot2.add("en ole osallistunut");
+            vaihtoehdot2.add("en ole osallistunut virtuaalikursseille");
 
-            vaihtoehdot3.add("tesktivastaus");
+            vaihtoehdot3.add("tekstivastaus");
 
             vaihtoehdot4.add("virtuaalikursseja");
             vaihtoehdot4.add("lähiopetuskursseja");
