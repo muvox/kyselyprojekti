@@ -31,6 +31,11 @@ public class AppController {
         kysRepo.deleteById(kyselyId);
         return "redirect:../adminPanel";
     }
+
+    @RequestMapping(value="/login")
+    public String login(){
+        return "login";
+    }
 }
 
 

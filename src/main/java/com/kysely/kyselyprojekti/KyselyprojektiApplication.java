@@ -1,10 +1,12 @@
 package com.kysely.kyselyprojekti;
 
+import com.kysely.kyselyprojekti.model.User;
 import com.kysely.kyselyprojekti.model.Vastaus;
 import com.kysely.kyselyprojekti.repository.KyselyRepository;
 import com.kysely.kyselyprojekti.repository.KysymysRepository;
 import com.kysely.kyselyprojekti.model.Kysely;
 import com.kysely.kyselyprojekti.model.Kysymys;
+import com.kysely.kyselyprojekti.repository.UserRepository;
 import com.kysely.kyselyprojekti.repository.VastausRepository;
 import com.kysely.kyselyprojekti.service.KyselyService;
 import com.kysely.kyselyprojekti.service.KysymysService;
@@ -15,6 +17,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +31,12 @@ public class KyselyprojektiApplication {
 		SpringApplication.run(KyselyprojektiApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner insertTestData(KyselyRepository kyselyRepo, KysymysRepository kysymysRepo, VastausRepository vasRepo){
+
+    @Bean
+	public CommandLineRunner insertTestData(KyselyRepository kyselyRepo, KysymysRepository kysymysRepo, VastausRepository vasRepo, UserRepository userRepo){
 		return (args) -> {
 			log.info("Inserting a question");
+
 
 			List<Kysymys> kysymysLista = new ArrayList<>();
 			List<Kysymys> kysymysLista2 = new ArrayList<>();
@@ -120,6 +125,7 @@ public class KyselyprojektiApplication {
             vasRepo.save(vas1);
             vasRepo.save(vas2);
             vasRepo.save(vas3);
+
 
 		};
 	}
