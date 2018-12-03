@@ -19,7 +19,7 @@
         <tr th:each="kysely : ${kyselyt}">
             <td th:text="${kysely.id}"></td>
             <td th:text="${kysely.title}"></td>
-            <td> ><a th:href="@{/delete/{id}(id=${kysely.id})}" class="btn btn-danger" >Delete</a></td>
+            <td><a th:href="@{/delete/{id}(id=${kysely.id})}" class="btn btn-danger" >Delete</a></td>
             <td></td>
 
         </tr>

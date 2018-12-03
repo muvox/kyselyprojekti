@@ -29,7 +29,7 @@ public class AppController {
     @GetMapping(value = "/delete/{id}")
     public String deleteKysely(@PathVariable("id") Long kyselyId, Model model){
         kysRepo.deleteById(kyselyId);
-        return "redirect:../admin_panel";
+        return "redirect:../adminPanel";
     }
 }
 
