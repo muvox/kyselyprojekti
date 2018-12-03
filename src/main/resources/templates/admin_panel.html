@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+</head>
+<body>
+
+<h1>Admin työkalu kyselyprojektiin</h1>
+<table class="table table-striped">
+   <tr>
+       <th>id</th>
+       <th>title</th>
+       <th></th>
+       <th></th>
+   </tr>
+
+        <tr th:each="kysely : ${kyselyt}">
+            <td th:text="${kysely.id}"></td>
+            <td th:text="${kysely.title}"></td>
+            <td> ><a th:href="@{/delete/{id}(id=${kysely.id})}" class="btn btn-danger" >Delete</a></td>
+            <td></td>
+
+        </tr>
+
+
+</table>
+</body>
+</html>
